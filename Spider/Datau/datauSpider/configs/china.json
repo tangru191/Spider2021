@@ -1,0 +1,50 @@
+{
+  "spider": "gravitation",
+  "website": "慕课网",
+  "type": "课程",
+  "index": "https://www.imooc.com",
+  "settings": {
+    "USER_AGENT": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+  },
+  "start_urls": {
+    "type": "static",
+    "method": "china",
+    "args": [
+     "https://www.imooc.com/course/list"
+    ]
+  },
+  "allowed_domains": [
+    "imooc.com"
+  ],
+  "rules": "china",
+  "item": {
+    "class": "NewsItem",
+    "loader": "ChinaLoader",
+    "attrs": {
+      "title": [
+        {
+          "method": "xpath",
+          "args": [
+            "//*[@id='main']/div[1]/div[1]/div[2]/h2/text()"
+          ]
+        }
+      ],
+      "url": [
+        {
+          "method": "attr",
+          "args": [
+            "url"
+          ]
+        }
+      ],
+      "website": [
+        {
+          "method": "value",
+          "args": [
+            "慕课网"
+          ]
+        }
+      ]
+    }
+  }
+}
